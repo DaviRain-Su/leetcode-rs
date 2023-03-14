@@ -1,30 +1,17 @@
-// public int numIdenticalPairs(int[] A) {
-//        int res = 0, count[] = new int[101];
-//        for (int a: A) {
-//            res += count[a]++;
-//        }
-//        return res;
-// }
+use std::collections::BTreeMap;
+
 pub fn num_identical_pairs(nums: Vec<i32>) -> i32 {
-    use std::collections::BTreeMap;
-    let mut cnt = 0;
-    // for i in 0..(nums.len()) {
-    //     for j in (i + 1)..(nums.len()) {
-    //         if nums[i] == nums[j] {
-    //             cnt += 1;
-    //         }
-    //     }
-    // }
-    let mut map = BTreeMap::new();
-    for item in nums {
-        if let Some(v) = map.get_mut(&item) {
-            cnt += *v;
-            *v += 1;
-        } else {
-            map.insert(item, 1);
-        }
-    }
-    cnt
+    nums.into_iter()
+        .fold((0, BTreeMap::new()), |(mut cnt, mut map), num| {
+            if let Some(v) = map.get_mut(&num) {
+                cnt += *v;
+                *v += 1;
+            } else {
+                map.insert(num, 1);
+            }
+            (cnt, map)
+        })
+        .0
 }
 
 #[test]

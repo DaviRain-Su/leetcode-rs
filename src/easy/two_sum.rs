@@ -24,39 +24,19 @@ pub fn solution_v1(nums: Vec<i32>, target: i32) -> Vec<i32> {
 /// use hashmap solution this problem
 pub fn solution_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
     use std::collections::HashMap;
-    let mut map = HashMap::new();
-
-    for (idx, item) in nums.into_iter().enumerate() {
-        let right = target - item;
-        if let Some(v) = map.get(&right) {
-            return vec![*v, idx as i32];
-        } else {
-            map.insert(item, idx as i32);
-        }
-    }
-    vec![]
+    nums.into_iter()
+        .enumerate()
+        .fold((vec![], HashMap::new()), |(ret, mut map), (idx, item)| {
+            let right = target - item;
+            if let Some(v) = map.get(&right) {
+                (vec![*v, idx as i32], map)
+            } else {
+                map.insert(item, idx as i32);
+                (ret, map)
+            }
+        })
+        .0
 }
-
-// cannot use n size vector to do this
-// pub fn solution_v2(nums: Vec<i32>, target: i32) -> Vec<i32> {
-//     let max_num = nums.clone().into_iter().max().unwrap_or_default();
-//     let mut result = vec![0; max_num as usize + 1];
-//     for (i, j) in nums.iter().enumerate() {
-//         println!("i is {i}, j is {j}");
-//         let r = target - j;
-//         println!("r is {r}");
-//         match result.iter().find(|v| v == &&r) {
-//             Some(_v) => {
-//                 println!("_v is {_v}");
-//                 return vec![result[r as usize], i as i32];
-//             }
-//             None => {
-//                 result[*j as usize] = i as i32;
-//             }
-//         }
-//     }
-//     vec![]
-// }
 
 #[test]
 fn test_two_sum() {
