@@ -1,3 +1,7 @@
+/// # 67. Add Binary
+///
+/// Given two binary strings a and b, return their sum as a binary string.
+pub mod add_binary;
 /// # 1920. Build Array from Permutation
 ///
 /// Given a zero-based permutation nums (0-indexed), build an array ans of the same length where `ans[i] = nums[nums[i]]` for each `0 <= i < nums`.length and return it.
@@ -72,6 +76,33 @@ pub mod final_value_after_operations;
 ///
 /// Return the array ans.
 pub mod get_concatenation;
+/// # 94. Binary Tree Inorder Traversal
+///
+/// Given the root of a binary tree, return the inorder traversal of its nodes' values.
+///
+/// ```ts
+/// inorderTraversal(root):
+///    result = []
+///    stack = []
+///    curr = root
+///
+///    while curr != null or stack is not empty:
+///        while curr != null:
+///            stack.push(curr)
+///            curr = curr.left
+///
+///        node = stack.pop()
+///        result.push(node.val)
+///        curr = node.right
+///
+///    return result
+///```
+///
+/// 该算法使用了一个栈来模拟递归遍历。我们首先将根节点压入栈中，然后遍历其左子树，将左子节点压入栈中。
+/// 在遍历完左子树后，我们弹出栈顶元素并将其加入结果向量中，然后遍历其右子树，将右子节点压入栈中。这样不断地遍历栈中的元素，直到所有节点都被遍历完为止。
+///
+/// 注意，伪码中的 null 应该被替换为 None，算法的实现语言中可能也需要进行相应的修改。
+pub mod inorder_traversal;
 /// #1431. Kids With the Greatest Number of Candies
 ///
 /// There are n kids with candies. You are given an integer array candies, where each `candies[i]` represents the number of candies the ith kid has, and an integer extraCandies, denoting the number of extra candies that you have.
@@ -119,6 +150,7 @@ pub mod most_words_found;
 ///
 /// A pair (i, j) is called good if `nums[i] == nums[j]` and `i < j`.
 pub mod num_identical_pairs;
+pub mod plus_one;
 /// # 26. Remove Duplicates from Sorted Array
 ///
 /// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
@@ -179,37 +211,6 @@ pub mod str_str;
 ///
 /// You can return the answer in any order.
 pub mod two_sum;
-
-pub mod plus_one;
-
-pub mod add_binary;
-/// # 94. Binary Tree Inorder Traversal
-///
-/// Given the root of a binary tree, return the inorder traversal of its nodes' values.
-///
-/// ```ts
-/// inorderTraversal(root):
-///    result = []
-///    stack = []
-///    curr = root
-///
-///    while curr != null or stack is not empty:
-///        while curr != null:
-///            stack.push(curr)
-///            curr = curr.left
-///
-///        node = stack.pop()
-///        result.push(node.val)
-///        curr = node.right
-///
-///    return result
-///```
-///
-/// 该算法使用了一个栈来模拟递归遍历。我们首先将根节点压入栈中，然后遍历其左子树，将左子节点压入栈中。
-/// 在遍历完左子树后，我们弹出栈顶元素并将其加入结果向量中，然后遍历其右子树，将右子节点压入栈中。这样不断地遍历栈中的元素，直到所有节点都被遍历完为止。
-///
-/// 注意，伪码中的 null 应该被替换为 None，算法的实现语言中可能也需要进行相应的修改。
-pub mod inorder_traversal;
 
 pub mod defang_i_paddr;
 
