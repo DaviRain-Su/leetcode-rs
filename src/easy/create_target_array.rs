@@ -1,5 +1,5 @@
 pub fn create_target_array(nums: Vec<i32>, index: Vec<i32>) -> Vec<i32> {
-    (0..index.len()).fold(vec![], |mut result, idx| {
+    (0..index.len()).fold(Vec::with_capacity(index.len()), |mut result, idx| {
         result.insert(index[idx] as usize, nums[idx]);
         result
     })
