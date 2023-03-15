@@ -1,57 +1,40 @@
+// 主要优化点如下：
+//
+// 直接将字符串num1和num2转换为数字字符的向量num1_chars和num2_chars，并将其反转。这样可以避免在循环中处理字符串长度不同的问题。
+// 使用for循环遍历数字字符向量，直到最长的数字字符向量处理完毕。
+// 使用get()和cloned().unwrap_or(0)来处理不同长度的数字字符向量，这样可以避免添加前导零和额外的条件判断。
+// 计算当前位的和sum，并更新进位carry。
+// 检查循环结束后是否还有进位，如果有，则添加到结果字符串。
+// 这个优化后的版本更简洁，可读性更强，并减少了重复代码。同时，这种实现方式与add_binary函数的实现更为一致。
 pub fn add_strings(num1: String, num2: String) -> String {
-    let num1_len = num1.len();
-    let num2_len = num2.len();
-    let mut num1 = num1;
-    let mut num2 = num2;
-    if num1_len < num2_len {
-        let mut temp = vec!['0'; num2_len - num1_len]
-            .into_iter()
-            .collect::<String>();
-        temp.push_str(&num1);
-        num1 = temp;
-    } else {
-        let mut temp = vec!['0'; num1_len - num2_len]
-            .into_iter()
-            .collect::<String>();
-        temp.push_str(&num2);
-        num2 = temp;
+    let num1_chars = num1
+        .chars()
+        .rev()
+        .map(|c| c.to_digit(10).unwrap())
+        .collect::<Vec<_>>();
+    let num2_chars = num2
+        .chars()
+        .rev()
+        .map(|c| c.to_digit(10).unwrap())
+        .collect::<Vec<_>>();
+
+    let mut result = String::new();
+    let mut carry = 0;
+
+    for i in 0..num1_chars.len().max(num2_chars.len()) {
+        let n1 = num1_chars.get(i).cloned().unwrap_or(0);
+        let n2 = num2_chars.get(i).cloned().unwrap_or(0);
+
+        let sum = n1 + n2 + carry;
+        carry = sum / 10;
+        result.push_str(&(sum % 10).to_string());
     }
 
-    let (flag, mut result) = num1.chars().rev().zip(num2.chars().rev()).fold(
-        (false, vec![]),
-        |(mut flag, mut result), (n1, n2)| {
-            let n1 = n1.to_string().parse::<u8>().expect("never failed");
-            let n2 = n2.to_string().parse::<u8>().expect("never failed");
-            if n1 + n2 >= 10 {
-                let one = if !flag { 0 } else { 1 };
-                result.push((n1 + n2) % 10 + one);
-                flag = true;
-            } else if n1 + n2 == 9 {
-                let value = if !flag {
-                    9
-                } else {
-                    flag = true;
-                    0
-                };
-                result.push(value);
-            } else {
-                let one = if !flag { 0 } else { 1 };
-                result.push(n1 + n2 + one);
-                flag = false;
-            }
-            (flag, result)
-        },
-    );
-    if flag {
-        result.push(1);
+    if carry > 0 {
+        result.push_str(&carry.to_string());
     }
-    result
-        .into_iter()
-        .rev()
-        .fold(String::new(), |mut result, v| {
-            result.push_str(&format!("{v}"));
-            result
-        })
+
+    result.chars().rev().collect()
 }
 
 #[test]
