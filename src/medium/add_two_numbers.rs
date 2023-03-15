@@ -6,53 +6,26 @@ pub fn add_two_numbers(
 ) -> Option<Box<ListNode<i32>>> {
     let mut l1 = l1;
     let mut l2 = l2;
-    let mut flag = false;
-    let mut sum: Option<Box<ListNode<i32>>> = Some(Box::new(ListNode::<i32>::default()));
+    let mut carry = 0;
+    let mut sum = Some(Box::new(ListNode::new(0)));
     let mut current = &mut sum;
-    while l1.is_some() && l2.is_some() {
-        let one = if flag { 1 } else { 0 };
-        let s = l1.as_ref().unwrap().val + l2.as_ref().unwrap().val + one;
-        if s >= 10 {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(s % 10)));
-            flag = true;
-        } else {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(s)));
-            flag = false;
+
+    while l1.is_some() || l2.is_some() || carry > 0 {
+        let mut value = carry;
+        if let Some(node) = l1 {
+            value += node.val;
+            l1 = node.next;
         }
+        if let Some(node) = l2 {
+            value += node.val;
+            l2 = node.next;
+        }
+
+        carry = value / 10;
+        current.as_mut().unwrap().next = Some(Box::new(ListNode::new(value % 10)));
         current = &mut current.as_mut().unwrap().next;
-        l1 = l1.unwrap().next;
-        l2 = l2.unwrap().next;
     }
 
-    while l1.is_some() {
-        let one = if flag { 1 } else { 0 };
-        let l1_v = l1.as_ref().unwrap().val + one;
-        if l1_v >= 10 {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(l1_v % 10)));
-            flag = true;
-        } else {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(l1_v)));
-            flag = false;
-        }
-        current = &mut current.as_mut().unwrap().next;
-        l1 = l1.unwrap().next;
-    }
-    while l2.is_some() {
-        let one = if flag { 1 } else { 0 };
-        let l2_v = l2.as_ref().unwrap().val + one;
-        if l2_v >= 10 {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(l2_v % 10)));
-            flag = true;
-        } else {
-            current.as_mut().unwrap().next = Some(Box::new(ListNode::new(l2_v)));
-            flag = false;
-        }
-        current = &mut current.as_mut().unwrap().next;
-        l2 = l2.unwrap().next;
-    }
-    if flag {
-        current.as_mut().unwrap().next = Some(Box::new(ListNode::new(1)));
-    }
     sum.unwrap().next
 }
 
