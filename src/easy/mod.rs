@@ -93,6 +93,12 @@ pub mod kids_with_candies;
 ///
 /// Return the array answer.
 pub mod left_rigth_difference;
+/// # 58. Length of Last Word
+///
+/// Given a string s consisting of words and spaces, return the length of the last word in the string.
+///
+/// A word is a maximal  substring consisting of non-space characters only.
+pub mod length_of_last_word;
 /// # 1672. Richest Customer Wealth
 ///
 /// You are given an m x n integer grid accounts where `accounts[i][j]` is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
@@ -108,10 +114,33 @@ pub mod maximum_wealth;
 /// Return the maximum number of words that appear in a single sentence.
 pub mod most_words_found;
 /// # 1512. Number of Good Pairs
+///
 /// Given an array of integers nums, return the number of good pairs.
 ///
 /// A pair (i, j) is called good if `nums[i] == nums[j]` and `i < j`.
 pub mod num_identical_pairs;
+/// # 26. Remove Duplicates from Sorted Array
+///
+/// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+///
+/// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+///
+/// Return k after placing the final result in the first k slots of nums.
+///
+/// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+///
+pub mod remove_duplicates;
+/// # 27. Remove Element
+///
+/// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+///
+/// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+///
+/// Return k after placing the final result in the first k slots of nums.
+///
+/// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+///
+pub mod remove_element;
 pub mod restore_string;
 /// # 1480. Running Sum of 1d Array
 ///
@@ -119,6 +148,12 @@ pub mod restore_string;
 ///
 /// Return the running sum of nums.
 pub mod running_sum;
+/// # 35. Search Insert Position
+///
+/// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+///
+/// You must write an algorithm with O(log n) runtime complexity.
+pub mod search_insert;
 /// # 1470. Shuffle the Array
 ///
 /// Given the array nums consisting of 2n elements in the form `[x1,x2,...,xn,y1,y2,...,yn]`.
@@ -131,6 +166,11 @@ pub mod shuffle;
 ///
 /// Return the answer in an array.
 pub mod smaller_numbers_than_current;
+/// # 28. Find the Index of the First Occurrence in a String
+///
+/// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+///
+pub mod str_str;
 /// #1 Two Sum
 ///
 /// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -139,3 +179,40 @@ pub mod smaller_numbers_than_current;
 ///
 /// You can return the answer in any order.
 pub mod two_sum;
+
+pub mod plus_one;
+
+pub mod add_binary;
+/// # 94. Binary Tree Inorder Traversal
+///
+/// Given the root of a binary tree, return the inorder traversal of its nodes' values.
+///
+/// ```
+/// inorderTraversal(root):
+///    result = []
+///    stack = []
+///    curr = root
+///
+///    while curr != null or stack is not empty:
+///        while curr != null:
+///            stack.push(curr)
+///            curr = curr.left
+///
+///        node = stack.pop()
+///        result.push(node.val)
+///        curr = node.right
+///
+///    return result
+///```
+///
+/// 该算法使用了一个栈来模拟递归遍历。我们首先将根节点压入栈中，然后遍历其左子树，将左子节点压入栈中。
+/// 在遍历完左子树后，我们弹出栈顶元素并将其加入结果向量中，然后遍历其右子树，将右子节点压入栈中。这样不断地遍历栈中的元素，直到所有节点都被遍历完为止。
+///
+/// 注意，伪码中的 null 应该被替换为 None，算法的实现语言中可能也需要进行相应的修改。
+pub mod inorder_traversal;
+
+pub mod defang_i_paddr;
+
+pub mod num_jewels_in_stones;
+
+pub mod add_strings;
