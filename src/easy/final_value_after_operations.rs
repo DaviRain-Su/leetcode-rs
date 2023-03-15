@@ -1,12 +1,11 @@
 pub fn final_value_after_operations(operations: Vec<String>) -> i32 {
-    operations.into_iter().fold(0, |mut ret, operation| {
-        match operation.as_str() {
-            "++X" | "X++" => ret += 1,
-            "--X" | "X--" => ret -= 1,
-            _ => {}
-        };
-        ret
-    })
+    operations
+        .into_iter()
+        .fold(0, |acc, operation| match operation.as_str() {
+            "++X" | "X++" => acc + 1,
+            "--X" | "X--" => acc - 1,
+            _ => acc,
+        })
 }
 
 #[test]

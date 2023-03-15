@@ -1,8 +1,8 @@
 pub fn get_concatenation(nums: Vec<i32>) -> Vec<i32> {
-    let mut nums_clone = nums.clone();
-    let mut nums = nums;
-    nums.append(&mut nums_clone);
-    nums
+    let mut result = Vec::with_capacity(2 * nums.len());
+    result.extend(&nums);
+    result.extend(&nums);
+    result
 }
 
 #[test]

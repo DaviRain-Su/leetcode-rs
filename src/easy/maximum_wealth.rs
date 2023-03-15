@@ -1,11 +1,9 @@
 pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
-    accounts.into_iter().fold(0, |mut acc, account| {
-        let sum: i32 = account.iter().sum();
-        if sum > acc {
-            acc = sum;
-        }
-        acc
-    })
+    accounts
+        .into_iter()
+        .map(|account| account.into_iter().sum())
+        .max()
+        .unwrap_or(0)
 }
 
 #[test]

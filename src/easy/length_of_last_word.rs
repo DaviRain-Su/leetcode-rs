@@ -1,9 +1,8 @@
 pub fn length_of_last_word(s: String) -> i32 {
-    if let Some(v) = s.trim().split(' ').collect::<Vec<_>>().last() {
-        v.len() as i32
-    } else {
-        0
-    }
+    s.trim()
+        .split_whitespace()
+        .last()
+        .map_or(0, |word| word.len() as i32)
 }
 
 #[test]

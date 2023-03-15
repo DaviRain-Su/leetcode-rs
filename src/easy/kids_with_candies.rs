@@ -1,18 +1,9 @@
 pub fn kids_with_candies(candies: Vec<i32>, extra_candies: i32) -> Vec<bool> {
-    (0..candies.len()).fold(vec![], |mut result, idx| {
-        let max_kid_idx = idx;
-        let max_kid_with_candie = candies[idx] + extra_candies;
-        let r = (0..candies.len()).fold(true, |mut acc, jdx| {
-            if max_kid_with_candie < candies[jdx] && max_kid_idx != jdx {
-                acc &= false;
-            } else {
-                acc &= true;
-            }
-            acc
-        });
-        result.push(r);
-        result
-    })
+    let max_candies = *candies.iter().max().unwrap();
+    candies
+        .into_iter()
+        .map(|candy| candy + extra_candies >= max_candies)
+        .collect()
 }
 
 #[test]
