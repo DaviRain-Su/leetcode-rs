@@ -1,13 +1,15 @@
 pub fn difference_of_sum(nums: Vec<i32>) -> i32 {
     let element_sum = nums.iter().sum::<i32>();
-    let digit_sum = nums.iter().fold(0, |mut acc, num| {
-        let inn_sum = format!("{num}").chars().fold(0, |mut acc, v| {
-            acc += format!("{v}").parse::<i32>().expect("never failed");
-            acc
-        });
-        acc += inn_sum;
-        acc
-    });
+
+    let digit_sum = nums
+        .iter()
+        .map(|num| {
+            num.to_string()
+                .chars()
+                .map(|c| c.to_digit(10).unwrap() as i32)
+                .sum::<i32>()
+        })
+        .sum::<i32>();
 
     (element_sum - digit_sum).abs()
 }
