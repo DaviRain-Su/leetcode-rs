@@ -1,5 +1,13 @@
 use crate::utils::list::ListNode;
 
+//主要优化点如下：
+//
+// 将flag重命名为carry，使其意义更加明确。
+// 将三个while循环合并为一个，可以减少代码重复。只要l1或l2或carry中至少有一个不为空，就会继续循环。
+// 使用if let Some(node)结构简化链表节点的访问，减少.unwrap()的使用。
+// 更新value时直接累加carry，并在每次循环之后重新计算carry的值。
+// 删除一些不必要的else子句。
+// 这个优化后的版本更加简洁，可读性更强，并减少了重复代码。
 pub fn add_two_numbers(
     l1: Option<Box<ListNode<i32>>>,
     l2: Option<Box<ListNode<i32>>>,

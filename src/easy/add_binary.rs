@@ -1,20 +1,20 @@
 /// todo can improve
 pub fn add_binary(a: String, b: String) -> String {
-    let a = a
+    let a_dec = a
         .chars()
-        .map(|c| c.to_string().parse::<u128>().unwrap())
         .rev()
         .enumerate()
-        .fold(0, |acc, (idx, x)| acc + (x * 2_u128.pow(idx as u32)));
+        .map(|(idx, c)| c.to_digit(10).unwrap() as u128 * 2_u128.pow(idx as u32))
+        .sum::<u128>();
 
-    let b = b
+    let b_dec = b
         .chars()
-        .map(|c| c.to_string().parse::<u128>().unwrap())
         .rev()
         .enumerate()
-        .fold(0, |acc, (idx, x)| acc + (x * 2_u128.pow(idx as u32)));
+        .map(|(idx, c)| c.to_digit(10).unwrap() as u128 * 2_u128.pow(idx as u32))
+        .sum::<u128>();
 
-    format!("{:b}", a + b)
+    format!("{:b}", a_dec + b_dec)
 }
 
 #[test]
