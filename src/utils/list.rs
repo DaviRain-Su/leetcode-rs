@@ -13,7 +13,7 @@ impl<T> ListNode<T> {
 }
 
 pub fn build_list<T: Default>(values: Vec<T>) -> Option<Box<ListNode<T>>> {
-    let mut head = Some(Box::new(ListNode::default()));
+    let mut head: Option<Box<ListNode<T>>> = Some(Box::default());
     let mut current = &mut head;
     for value in values.into_iter() {
         current.as_mut().unwrap().next = Some(Box::new(ListNode::new(value)));

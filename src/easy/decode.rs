@@ -19,6 +19,6 @@ fn test_decode() {
 fn test_xor() {
     println!("1 xor 0 = 1");
     println!("1 xor 1 = {}", 1 ^ 1);
-    println!("0 xor 2 = {}", 0 ^ 2);
+    // println!("0 xor 2 = {}", 0 ^ 2);
     println!("2 xor 3 = {}", 2 ^ 3);
 }
