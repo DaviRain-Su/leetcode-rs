@@ -220,4 +220,64 @@ pub mod defang_i_paddr;
 ///
 /// You must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.
 pub mod add_strings;
+/// # 2367. Number of Arithmetic Triplets
+///
+/// You are given a 0-indexed, strictly increasing integer array nums and a positive integer diff. A triplet `(i, j, k)` is an
+/// arithmetic triplet if the following conditions are met:
+///
+/// `i < j < k`,
+/// `nums[j] - nums[i] == diff`, and
+/// `nums[k] - nums[j] == diff`.
+/// Return the number of unique arithmetic triplets.
+pub mod arithmetic_triplets;
+/// # 1662. Check If Two String Arrays are Equivalent
+/// Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
+///
+/// A string is represented by an array if the array elements concatenated in order forms the string.
+pub mod array_strings_are_equal;
+/// # 1295. Find Numbers with Even Number of Digits
+///
+/// Given an array nums of integers, return how many of them contain an even number of digits.
+pub mod find_numbers;
+/// # 14. Longest Common Prefix
+///
+/// Write a function to find the longest common prefix string amongst an array of strings.
+///
+///If there is no common prefix, return an empty string "".
+pub mod longest_common_prefix;
 pub mod num_jewels_in_stones;
+/// # 13. Roman to Integer
+///
+/// Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+///
+/// Symbol       Value
+/// I             1
+/// V             5
+/// X             10
+/// L             50
+/// C             100
+/// D             500
+/// M             1000
+/// For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+///
+/// Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+///
+/// I can be placed before V (5) and X (10) to make 4 and 9.
+/// X can be placed before L (50) and C (100) to make 40 and 90.
+/// C can be placed before D (500) and M (1000) to make 400 and 900.
+/// Given a roman numeral, convert it to an integer.
+pub mod roman_to_int;
+/// # 2418. Sort the People
+///
+/// You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
+///
+/// For each index i, names[i] and heights[i] denote the name and height of the ith person.
+///
+/// Return names sorted in descending order by the people's heights.
+pub mod sort_people;
+/// # 1588. Sum of All Odd Length Subarrays
+///
+/// Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+///
+/// A subarray is a contiguous subsequence of the array.
+pub mod sum_odd_length_subarrays;
