@@ -103,7 +103,7 @@ pub mod get_concatenation;
 ///
 /// 注意，伪码中的 null 应该被替换为 None，算法的实现语言中可能也需要进行相应的修改。
 pub mod inorder_traversal;
-/// #1431. Kids With the Greatest Number of Candies
+/// # 1431. Kids With the Greatest Number of Candies
 ///
 /// There are n kids with candies. You are given an integer array candies, where each `candies[i]` represents the number of candies the ith kid has, and an integer extraCandies, denoting the number of extra candies that you have.
 ///
@@ -150,6 +150,11 @@ pub mod most_words_found;
 ///
 /// A pair (i, j) is called good if `nums[i] == nums[j]` and `i < j`.
 pub mod num_identical_pairs;
+/// # 66. Plus One
+/// 
+/// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
+/// 
+/// Increment the large integer by one and return the resulting array of digits.
 pub mod plus_one;
 /// # 26. Remove Duplicates from Sorted Array
 ///
@@ -173,6 +178,11 @@ pub mod remove_duplicates;
 /// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 ///
 pub mod remove_element;
+/// # 1528. Shuffle String
+/// 
+/// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+/// 
+/// Return the shuffled string.
 pub mod restore_string;
 /// # 1480. Running Sum of 1d Array
 ///
@@ -211,7 +221,11 @@ pub mod str_str;
 ///
 /// You can return the answer in any order.
 pub mod two_sum;
-
+/// # 1108. Defanging an IP Address
+/// 
+/// Given a valid (IPv4) IP address, return a defanged version of that IP address.
+/// 
+/// A defanged IP address replaces every period "." with "[.]".
 pub mod defang_i_paddr;
 
 /// # 415. Add Strings
@@ -245,6 +259,11 @@ pub mod find_numbers;
 ///
 ///If there is no common prefix, return an empty string "".
 pub mod longest_common_prefix;
+/// # 771. Jewels and Stones
+/// 
+/// You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+/// 
+/// Letters are case sensitive, so "a" is considered a different type of stone from "A".
 pub mod num_jewels_in_stones;
 /// # 13. Roman to Integer
 ///
