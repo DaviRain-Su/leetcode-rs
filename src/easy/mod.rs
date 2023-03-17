@@ -48,6 +48,12 @@ pub mod decode;
 ///
 /// Return the decompressed list.
 pub mod decompress_rl_elist;
+/// # 1108. Defanging an IP Address
+///
+/// Given a valid (IPv4) IP address, return a defanged version of that IP address.
+///
+/// A defanged IP address replaces every period "." with "[.]".
+pub mod defang_i_paddr;
 /// # 2535. Difference Between Element Sum and Digit Sum of an Array
 ///
 /// You are given a positive integer array nums.
@@ -151,9 +157,9 @@ pub mod most_words_found;
 /// A pair (i, j) is called good if `nums[i] == nums[j]` and `i < j`.
 pub mod num_identical_pairs;
 /// # 66. Plus One
-/// 
+///
 /// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
-/// 
+///
 /// Increment the large integer by one and return the resulting array of digits.
 pub mod plus_one;
 /// # 26. Remove Duplicates from Sorted Array
@@ -179,9 +185,9 @@ pub mod remove_duplicates;
 ///
 pub mod remove_element;
 /// # 1528. Shuffle String
-/// 
+///
 /// You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
-/// 
+///
 /// Return the shuffled string.
 pub mod restore_string;
 /// # 1480. Running Sum of 1d Array
@@ -221,12 +227,6 @@ pub mod str_str;
 ///
 /// You can return the answer in any order.
 pub mod two_sum;
-/// # 1108. Defanging an IP Address
-/// 
-/// Given a valid (IPv4) IP address, return a defanged version of that IP address.
-/// 
-/// A defanged IP address replaces every period "." with "[.]".
-pub mod defang_i_paddr;
 
 /// # 415. Add Strings
 ///
@@ -249,6 +249,12 @@ pub mod arithmetic_triplets;
 ///
 /// A string is represented by an array if the array elements concatenated in order forms the string.
 pub mod array_strings_are_equal;
+/// # 70. Climbing Stairs
+///
+/// You are climbing a staircase. It takes n steps to reach the top.
+///
+///Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+pub mod climb_stairs;
 /// # 1295. Find Numbers with Even Number of Digits
 ///
 /// Given an array nums of integers, return how many of them contain an even number of digits.
@@ -260,9 +266,9 @@ pub mod find_numbers;
 ///If there is no common prefix, return an empty string "".
 pub mod longest_common_prefix;
 /// # 771. Jewels and Stones
-/// 
+///
 /// You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
-/// 
+///
 /// Letters are case sensitive, so "a" is considered a different type of stone from "A".
 pub mod num_jewels_in_stones;
 /// # 13. Roman to Integer
