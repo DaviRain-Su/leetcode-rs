@@ -255,6 +255,15 @@ pub mod array_strings_are_equal;
 ///
 ///Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 pub mod climb_stairs;
+/// #  2006. Count Number of Pairs With Absolute Difference K
+///
+/// Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+///
+/// The value of |x| is defined as:
+///
+/// x if x >= 0.
+/// -x if x < 0.
+pub mod count_k_difference;
 /// # 1295. Find Numbers with Even Number of Digits
 ///
 /// Given an array nums of integers, return how many of them contain an even number of digits.
@@ -306,3 +315,25 @@ pub mod sort_people;
 ///
 /// A subarray is a contiguous subsequence of the array.
 pub mod sum_odd_length_subarrays;
+/// #  1816. Truncate Sentence
+///
+/// A sentence is a list of words that are separated by a single space with no leading or trailing spaces. Each of the words consists of only uppercase and lowercase English letters (no punctuation).
+///
+/// For example, "Hello World", "HELLO", and "hello world hello world" are all sentences.
+/// You are given a sentence s​​​​​​ and an integer k​​​​​​. You want to truncate s​​​​​​ such that it contains only the first k​​​​​​ words. Return s​​​​​​ after truncating it.
+pub mod truncate_sentence;
+/// # 804. Unique Morse Code Words
+///
+/// International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:
+///
+/// 'a' maps to ".-",
+/// 'b' maps to "-...",
+/// 'c' maps to "-.-.", and so on.
+/// For convenience, the full table for the 26 letters of the English alphabet is given below:
+///
+/// [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+/// Given an array of strings words where each word can be written as a concatenation of the Morse code of each letter.
+///
+/// For example, "cab" can be written as "-.-..--...", which is the concatenation of "-.-.", ".-", and "-...". We will call such a concatenation the transformation of a word.
+/// Return the number of different transformations among all words we have.
+pub mod unique_morse_representations;
