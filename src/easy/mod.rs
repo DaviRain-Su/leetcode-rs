@@ -337,3 +337,13 @@ pub mod truncate_sentence;
 /// For example, "cab" can be written as "-.-..--...", which is the concatenation of "-.-.", ".-", and "-...". We will call such a concatenation the transformation of a word.
 /// Return the number of different transformations among all words we have.
 pub mod unique_morse_representations;
+
+pub mod max_product_difference;
+
+pub mod delete_greatest_value;
+
+pub mod flip_and_invert_image;
+
+pub mod diagonal_sum;
+
+pub mod separate_digits;
