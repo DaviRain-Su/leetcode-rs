@@ -6,7 +6,7 @@ pub fn difference_of_sum(nums: Vec<i32>) -> i32 {
         .map(|num| {
             num.to_string()
                 .chars()
-                .map(|c| c.to_digit(10).unwrap() as i32)
+                .map(|c| c.to_digit(10).unwrap_or_default() as i32)
                 .sum::<i32>()
         })
         .sum::<i32>();

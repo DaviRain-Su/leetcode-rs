@@ -13,8 +13,14 @@ pub fn add_binary(a: String, b: String) -> String {
     let mut b_iter = b.chars().rev();
 
     loop {
-        let a_digit = a_iter.next().map(|c| c.to_digit(10).unwrap()).unwrap_or(0);
-        let b_digit = b_iter.next().map(|c| c.to_digit(10).unwrap()).unwrap_or(0);
+        let a_digit = a_iter
+            .next()
+            .map(|c| c.to_digit(10).unwrap_or_default())
+            .unwrap_or(0);
+        let b_digit = b_iter
+            .next()
+            .map(|c| c.to_digit(10).unwrap_or_default())
+            .unwrap_or(0);
 
         if a_digit == 0 && b_digit == 0 && carry == 0 {
             break;

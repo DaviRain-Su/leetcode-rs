@@ -347,3 +347,11 @@ pub mod flip_and_invert_image;
 pub mod diagonal_sum;
 
 pub mod separate_digits;
+
+pub mod first_palindrome;
+
+pub mod find_gcd;
+
+pub mod merge;
+
+pub mod sort_array_by_parity;

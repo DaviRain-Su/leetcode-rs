@@ -10,12 +10,12 @@ pub fn add_strings(num1: String, num2: String) -> String {
     let num1_chars = num1
         .chars()
         .rev()
-        .map(|c| c.to_digit(10).unwrap())
+        .map(|c| c.to_digit(10).unwrap_or_default())
         .collect::<Vec<_>>();
     let num2_chars = num2
         .chars()
         .rev()
-        .map(|c| c.to_digit(10).unwrap())
+        .map(|c| c.to_digit(10).unwrap_or_default())
         .collect::<Vec<_>>();
 
     let mut result = String::new();
