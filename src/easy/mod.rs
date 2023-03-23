@@ -355,3 +355,7 @@ pub mod find_gcd;
 pub mod merge;
 
 pub mod sort_array_by_parity;
+
+pub mod height_checker;
+
+pub mod count_negatives;
