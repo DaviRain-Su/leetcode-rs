@@ -359,3 +359,7 @@ pub mod sort_array_by_parity;
 pub mod height_checker;
 
 pub mod count_negatives;
+
+pub mod sum_of_unique;
+
+pub mod can_be_increasing;
